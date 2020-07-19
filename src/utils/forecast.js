@@ -11,7 +11,9 @@ const forecast = function(location,callback) {
         }
         else {
             callback(undefined,{
-                forecast: body.current.temp_c + ' is the current temperature in celsius. '+body.current.condition.text,
+                forecast: body.current.temp_c + ' is the current temperature in celsius. '
+                +body.current.condition.text + '. Maximum temperature will be '+ body.forecast.forecastday[0].day.maxtemp_c
+                +'. Minimum temperature will be ' + body.forecast.forecastday[0].day.mintemp_c,
                 name: body.location.name,
                 region: body.location.region,
                 country: body.location.country
